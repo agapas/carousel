@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-	<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/fontawesome.css" integrity="sha384-HU5rcgG/yUrsDGWsVACclYdzdCcn5yU8V/3V84zSrPDHwZEdjykadlgI6RHrxGrJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-	<body>
+  <body>
     <div id="carousel-container">
       <div id="slide">
         <span id="previous" class="arrow" onclick="updateSlide(-1)">
@@ -22,25 +21,25 @@
         <span id="next" class="arrow" onclick="updateSlide(1)">
           <i class="fas fa-chevron-circle-right fa-2x"></i>
         </span>
-			</div>
+      </div>
       <div id="source">Source of images: https://pixabay.com</div>
-			<ul id="dots">
-				<li id="1" class="dot active"></li>
-				<li id="2" class="dot"></li>
-				<li id="3" class="dot"></li>
-			</ul>
+      <ul id="dots">
+        <li id="1" class="dot active"></li>
+        <li id="2" class="dot"></li>
+        <li id="3" class="dot"></li>
+      </ul>
     </div>
 
     <script>
-			// TODO:
-			// - add onclick event listener to dots
-			// - update readme
+      // TODO:
+      // - add onclick event listener to dots
+      // - update readme
 
-			const dots = document.getElementsByClassName("dot");
-			const slide = document.getElementById("slide");
+      const dots = document.getElementsByClassName("dot");
+      const slide = document.getElementById("slide");
 
       const updateSlide = (count) => {
-				const activeDot = document.getElementsByClassName("active")[0];
+        const activeDot = document.getElementsByClassName("active")[0];
         const newNumber = parseInt(activeDot.id) + count;
         const activeNumber = newNumber < 1
           ? dots.length
