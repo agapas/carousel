@@ -15,39 +15,38 @@
   <body>
     <div id="carousel-container">
       <div id="slide">
-        <span id="previous" class="arrow" onclick="updateSlide(-1)">
+        <span id="previous" class="arrow" onclick="updateActive(-1, true)">
           <i class="fas fa-chevron-circle-left fa-2x"></i>
         </span>
-        <span id="next" class="arrow" onclick="updateSlide(1)">
+        <span id="next" class="arrow" onclick="updateActive(1, true)">
           <i class="fas fa-chevron-circle-right fa-2x"></i>
         </span>
       </div>
       <div id="source">Source of images: https://pixabay.com</div>
       <ul id="dots">
-        <li id="1" class="dot active"></li>
-        <li id="2" class="dot"></li>
-        <li id="3" class="dot"></li>
+        <li id="1" class="dot active" onclick="updateActive(1)"></li>
+        <li id="2" class="dot" onclick="updateActive(2)"></li>
+        <li id="3" class="dot" onclick="updateActive(3)"></li>
       </ul>
     </div>
 
     <script>
-      // TODO:
-      // - add onclick event listener to dots
-      // - update readme
-
       const dots = document.getElementsByClassName("dot");
       const slide = document.getElementById("slide");
 
-      const updateSlide = (count) => {
+      const updateActive = (number, checkRange) => {
         const activeDot = document.getElementsByClassName("active")[0];
-        const newNumber = parseInt(activeDot.id) + count;
-        const activeNumber = newNumber < 1
-          ? dots.length
-          : newNumber > dots.length ? 1 : newNumber;
-
-        slide.style.backgroundImage = "url('images/" + activeNumber + ".jpg')";
         activeDot.className = activeDot.className.replace(' active', '');
-        dots[activeNumber - 1].className += " active";
+
+        if (!!checkRange) {
+          const newNumber = parseInt(activeDot.id) + number;
+          number = newNumber < 1
+            ? dots.length
+            : newNumber > dots.length ? 1 : newNumber;
+        }
+
+        dots[number - 1].className += " active";
+        slide.style.backgroundImage = "url('images/" + number + ".jpg')";
       };
     </script>
   </body>
