@@ -2,40 +2,38 @@
 <html lang="en">
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta author='Agnieszka Pas' type='text'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta author='Agnieszka Pas' type='text'>
 
-		<title>Carousel</title>
+    <title>Carousel</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/solid.css" integrity="sha384-uKQOWcYZKOuKmpYpvT0xCFAs/wE157X5Ua3H5onoRAOCNkJAMX/6QF0iXGGQV9cP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/fontawesome.css" integrity="sha384-HU5rcgG/yUrsDGWsVACclYdzdCcn5yU8V/3V84zSrPDHwZEdjykadlgI6RHrxGrJ" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
 	<body>
-		<div id="carousel-container">
+    <div id="carousel-container">
       <div id="slide">
-				<span id="previous" class="arrow" onclick="updateSlide(-1)">
-	        <i class="fas fa-chevron-circle-left fa-2x"></i>
-	      </span>
-	      <span id="next" class="arrow" onclick="updateSlide(1)">
-	        <i class="fas fa-chevron-circle-right fa-2x"></i>
-	      </span>
+        <span id="previous" class="arrow" onclick="updateSlide(-1)">
+          <i class="fas fa-chevron-circle-left fa-2x"></i>
+        </span>
+        <span id="next" class="arrow" onclick="updateSlide(1)">
+          <i class="fas fa-chevron-circle-right fa-2x"></i>
+        </span>
 			</div>
-			 <ul id="dots">
-				 <li id="1" class="dot active"></li>
-				 <li id="2" class="dot"></li>
-				 <li id="3" class="dot"></li>
-			 </ul>
+      <div id="source">Source of images: https://pixabay.com</div>
+			<ul id="dots">
+				<li id="1" class="dot active"></li>
+				<li id="2" class="dot"></li>
+				<li id="3" class="dot"></li>
+			</ul>
     </div>
 
     <script>
-
 			// TODO:
 			// - add onclick event listener to dots
-			// - style arrows (use flex?)
-			// - add link to source of images
 			// - update readme
 
 			const dots = document.getElementsByClassName("dot");
@@ -48,8 +46,8 @@
           ? dots.length
           : newNumber > dots.length ? 1 : newNumber;
 
-				slide.style.backgroundImage = "url('images/" + activeNumber + ".jpg')";
-				activeDot.className = activeDot.className.replace(' active', '');
+        slide.style.backgroundImage = "url('images/" + activeNumber + ".jpg')";
+        activeDot.className = activeDot.className.replace(' active', '');
         dots[activeNumber - 1].className += " active";
       };
     </script>
