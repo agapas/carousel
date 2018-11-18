@@ -1,53 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta author='Agnieszka Pas' type='text'>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta author='Agnieszka Pas' type='text'>
 
-    <title>Carousel</title>
+  <title>Carousel</title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/solid.css" integrity="sha384-uKQOWcYZKOuKmpYpvT0xCFAs/wE157X5Ua3H5onoRAOCNkJAMX/6QF0iXGGQV9cP" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/fontawesome.css" integrity="sha384-HU5rcgG/yUrsDGWsVACclYdzdCcn5yU8V/3V84zSrPDHwZEdjykadlgI6RHrxGrJ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <div id="carousel-container">
-      <div id="slide">
-        <span id="previous" class="arrow" onclick="updateActive(-1, true)">
-          <i class="fas fa-chevron-circle-left fa-2x"></i>
-        </span>
-        <span id="next" class="arrow" onclick="updateActive(1, true)">
-          <i class="fas fa-chevron-circle-right fa-2x"></i>
-        </span>
-      </div>
-      <div id="source">Source of images: https://pixabay.com</div>
-      <ul id="dots">
-        <li id="1" class="dot active" onclick="updateActive(1)"></li>
-        <li id="2" class="dot" onclick="updateActive(2)"></li>
-        <li id="3" class="dot" onclick="updateActive(3)"></li>
-      </ul>
+  <!--
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
+  -->
+  <link rel="stylesheet" href="css/solid.css">
+  <link rel="stylesheet" href="css/fontawesome.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="carousel-container">
+    <div id="slide">
+      <span id="previous" class="arrow" onclick="updateActive(-1, true)">
+        <i class="fas fa-chevron-circle-left fa-2x"></i>
+      </span>
+      <span id="next" class="arrow" onclick="updateActive(1, true)">
+        <i class="fas fa-chevron-circle-right fa-2x"></i>
+      </span>
     </div>
-
-    <script>
-      const dots = document.getElementsByClassName("dot");
-      const slide = document.getElementById("slide");
-
-      const updateActive = (number, checkRange) => {
-        const activeDot = document.getElementsByClassName("active")[0];
-        activeDot.className = activeDot.className.replace(' active', '');
-
-        if (!!checkRange) {
-          const newNumber = parseInt(activeDot.id) + number;
-          number = newNumber < 1
-            ? dots.length
-            : newNumber > dots.length ? 1 : newNumber;
-        }
-
-        dots[number - 1].className += " active";
-        slide.style.backgroundImage = "url('images/" + number + ".jpg')";
-      };
-    </script>
-  </body>
+    <div id="source">Source of images: https://pixabay.com</div>
+    <ul id="dots">
+      <li id="1" class="dot active" onclick="updateActive(1)"></li>
+      <li id="2" class="dot" onclick="updateActive(2)"></li>
+      <li id="3" class="dot" onclick="updateActive(3)"></li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
 </html>
